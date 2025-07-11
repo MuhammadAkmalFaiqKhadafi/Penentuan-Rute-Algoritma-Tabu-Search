@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Implementasi Tabu Search</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" rel="stylesheet">
+    <style>#map { height: 400px; }</style>
+</head>
+<body class="container mt-4">
+    <h2>Penentuan Rute Pengiriman</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+    <!-- FORM INPUT JUMLAH KENDARAAN -->
+    <form method="POST" action="/set_kendaraan" class="mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <label>Jumlah Kendaraan</label>
+                <input type="number" name="vehicle_count" class="form-control" required>
+                <label>Tentukan jumlah Kendaraan yang digunakan </label>
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+                <button class="btn btn-info w-100" type="submit">Set</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- FORM INPUT LOKASI -->
+    <form method="POST" action="/submit">
+        <div class="mb-3">
+            <label>Nama Lokasi</label>
+            <input type="text" class="form-control" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label>Tipe</label>
+            <select name="type" class="form-select" id="typeSelect" required>
+                <option value="depot">Depot</option>
+                <option value="customer">Konsumen</option>
+                <option value="rest_area">Rest Area</option>
+                <option value="menginap">Lokasi Menginap</option>
+            <label>Pilih Tipe lokasi yang di masukkan</label>        
+            </select>
+        </div>
+        <label>Pilih titik lokasi pada maps dibawah untuk mengisi koordinat secara otomatis</label>
+        <div class="mb-3">
+            <label>Latitude</label>
+            <input type="text" class="form-control" name="lat" id="lat" required>
+        </div>
+        <div class="mb-3">
+            <label>Longitude</label>
+            <input type="text" class="form-control" name="lon" id="lon" required>
+        </div>
+        <!-- Konsumen Fields -->
+        <div class="mb-3" id="demandFeeFields">
+            <label>Demand</label>
+            <input type="number" class="form-control" name="demand">
+            <label class="mt-2">Fee per Koli</label>
+            <input type="number" class="form-control" name="fee">
+        </div>
+
+        <!-- Depot Field -->
+        <div class="mb-3" id="supplyField" style="display: none;">
+            <label>Supply (Koli)</label>
+            <input type="number" class="form-control" name="supply">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Simpan Lokasi</button>
+        <a href="/lokasi" class="btn btn-secondary">Lihat Daftar Lokasi</a>
+        <label>Klik Daftar Lokasi Untuk Melakukan Proses</label>
+    </form> 
+{% if hasil_tersedia %}
+    <a href="/visualisasi" class="btn btn-success mb-3" target="_blank">Lihat Visualisasi</a>
+    <a href="/laporan_rute" class="btn btn-warning mb-3">Lihat Laporan Rute</a>
+    <a href="/hapus_hasil" class="btn btn-danger mt-3">Hapus Hasil Proses</a>
+{% endif %}
+    <h5 class="mt-4">Klik pada peta untuk mengisi koordinat</h5>
+    <div id="map"></div>
+
+    <!-- Leaflet map -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([-0.02, 109.32], 7);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        var marker;
+        map.on('click', function(e) {
+            var lat = e.latlng.lat.toFixed(6);
+            var lon = e.latlng.lng.toFixed(6);
+            document.getElementById('lat').value = lat;
+            document.getElementById('lon').value = lon;
+            if (marker) map.removeLayer(marker);
+            marker = L.marker([lat, lon]).addTo(map).bindPopup("Koordinat dipilih").openPopup();
+        });
+
+const typeSelect = document.getElementById('typeSelect');
+const demandFeeFields = document.getElementById('demandFeeFields');
+const supplyField = document.getElementById('supplyField');
+
+function toggleFields() {
+    const type = typeSelect.value;
+    
+    if (type === 'depot') {
+        supplyField.style.display = 'block';
+        demandFeeFields.style.display = 'none';
+    } else if (type === 'customer') {
+        supplyField.style.display = 'none';
+        demandFeeFields.style.display = 'block';
+    } else if (type === 'rest_area' || type === 'menginap') {
+        // Untuk rest area & menginap, sembunyikan semua input spesifik
+        supplyField.style.display = 'none';
+        demandFeeFields.style.display = 'none';
+    }
+}
+            
+
+        typeSelect.addEventListener('change', toggleFields);
+        window.onload = toggleFields;
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Laporan Rute dan Profit</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+    <a href="/export_word" class="btn btn-primary mt-3">Download Laporan Word</a>
+    <a href="/" class="btn btn-secondary">Kembali ke Beranda</a>
+
+    <h2 class="mb-4">Laporan Rute dan Profit</h2>
+
+    <h4>Total</h4>
+    <table class="table table-bordered">
+        <tr><td>Biaya Bahan Bakar</td><td>{{ total_fuel }}</td></tr>
+        <tr><td>Biaya Operasional</td><td>{{ total_ops }}</td></tr>
+        <tr><td>Total Biaya</td><td>{{ total_biaya }}</td></tr>
+        <tr><td>Total Pendapatan</td><td>{{ total_revenue }}</td></tr>
+        <tr><td>Profit (Keuntungan)</td><td>{{ profit_total }}</td></tr>
+    </table>
+
+    <!-- Chart Statistik Langsung Ditempel -->
+    <div class="my-4">
+        <canvas id="summaryChart" width="600" height="400"></canvas>
+    </div>
+
+    <script id="chart-data" type="application/json">
+        {
+            "jarak": {{ total_jarak }},
+            "biaya": {{ total_biaya }},
+            "profit": {{ profit_total }}
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const rawData = document.getElementById('chart-data').textContent;
+        const parsedData = JSON.parse(rawData);
+
+        const canvas = document.getElementById('summaryChart');
+        const ctx = canvas.getContext('2d');
+
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jarak Tempuh (km)', 'Biaya (Rp)', 'Profit (Rp)'],
+                datasets: [{
+                    label: 'Statistik CMVRP',
+                    data: [parsedData.jarak, parsedData.biaya, parsedData.profit],
+                    backgroundColor: ['#36A2EB', '#FF6384', '#4BC0C0']
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    onComplete: function () {
+                        const img = document.getElementById("chartImage");
+                        img.src = canvas.toDataURL("image/png");
+                        img.style.display = "block";
+
+                        // Simpan chart ke server (jika ingin otomatis ekspor)
+                        fetch('/simpan_chart', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                            body: 'image=' + encodeURIComponent(img.src)
+                        });
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+    </script>
+
+    <h4>Rincian per Kendaraan</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Kendaraan</th><th>Jarak (km)</th><th>Overnight</th>
+                <th>Pendapatan</th><th>Biaya</th><th>Profit</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for k in kendaraan_data %}
+            <tr>
+                <td>{{ k.kendaraan }}</td>
+                <td>{{ k.jarak }}</td>
+                <td>{{ k.overnight }}</td>
+                <td>{{ k.revenue }}</td>
+                <td>{{ k.biaya }}</td>
+                <td>{{ k.profit }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

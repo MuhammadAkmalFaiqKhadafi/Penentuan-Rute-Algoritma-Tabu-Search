@@ -1,0 +1,348 @@
+[
+    {
+        "name": "Pontianak 1",
+        "type": "depot",
+        "lat": -0.0216806367711435,
+        "lon": 109.321787367362,
+        "demand": null,
+        "fee": null,
+        "supply": 72
+    },
+    {
+        "name": "Pontianak 2",
+        "type": "depot",
+        "lat": -0.0913518946417185,
+        "lon": 109.392303436673,
+        "demand": null,
+        "fee": null,
+        "supply": 72
+    },
+    {
+        "name": "Tayan Hilir",
+        "type": "customer",
+        "lat": -0.03559892023639575,
+        "lon": 110.11406154689286,
+        "demand": 2,
+        "fee": 20000
+    },
+    {
+        "name": "Sosok",
+        "type": "customer",
+        "lat": 0.29355995367963583,
+        "lon": 110.24318728460791,
+        "demand": 3,
+        "fee": 25000
+    },
+    {
+        "name": "Ngabang 1",
+        "type": "customer",
+        "lat": 0.38096088896953084,
+        "lon": 109.95175660621733,
+        "demand": 3,
+        "fee": 35000
+    },
+    {
+        "name": "Ngabang 2",
+        "type": "customer",
+        "lat": 0.39857854791849445,
+        "lon": 109.95076443241291,
+        "demand": 2,
+        "fee": 35000
+    },
+    {
+        "name": "Ngabang 3",
+        "type": "customer",
+        "lat": 0.39592617623348997,
+        "lon": 109.94436387724139,
+        "demand": 3,
+        "fee": 35000
+    },
+    {
+        "name": "Mandor",
+        "type": "customer",
+        "lat": 0.3505518019525449,
+        "lon": 109.40797632593103,
+        "demand": 5,
+        "fee": 35000
+    },
+    {
+        "name": "Andjongan",
+        "type": "customer",
+        "lat": 0.35441518595547344,
+        "lon": 109.15941130877916,
+        "demand": 4,
+        "fee": 35000
+    },
+    {
+        "name": "Bengkayang 1",
+        "type": "customer",
+        "lat": 0.8198129244446497,
+        "lon": 109.48240573311614,
+        "demand": 4,
+        "fee": 40000
+    },
+    {
+        "name": "Bengkayang 2",
+        "type": "customer",
+        "lat": 0.8240560976606564,
+        "lon": 109.48343701674949,
+        "demand": 5,
+        "fee": 40000
+    },
+    {
+        "name": "Bengkayang 3",
+        "type": "customer",
+        "lat": 1.0451475005471282,
+        "lon": 109.58947207151505,
+        "demand": 3,
+        "fee": 40000
+    },
+    {
+        "name": "Sungai Pinyuh",
+        "type": "customer",
+        "lat": 0.27839884035011186,
+        "lon": 109.07369361893618,
+        "demand": 5,
+        "fee": 25000
+    },
+    {
+        "name": "Mempawah 1",
+        "type": "customer",
+        "lat": 0.3724971993214975,
+        "lon": 108.95675288207241,
+        "demand": 3,
+        "fee": 30000
+    },
+    {
+        "name": "Mempawah 2",
+        "type": "customer",
+        "lat": 0.36468430704820454,
+        "lon": 108.95321779947056,
+        "demand": 3,
+        "fee": 30000
+    },
+    {
+        "name": "Mempawah 3",
+        "type": "customer",
+        "lat": 0.36418109527913456,
+        "lon": 108.96105967389411,
+        "demand": 4,
+        "fee": 30000
+    },
+    {
+        "name": "Singkawang 1",
+        "type": "customer",
+        "lat": 0.8915720493936989,
+        "lon": 108.96141347423233,
+        "demand": 4,
+        "fee": 35000
+    },
+    {
+        "name": "Singkawang 2",
+        "type": "customer",
+        "lat": 0.9064241127097126,
+        "lon": 108.9897187690097,
+        "demand": 4,
+        "fee": 35000
+    },
+    {
+        "name": "Singkawang 3",
+        "type": "customer",
+        "lat": 0.9175605747114752,
+        "lon": 108.97995015824073,
+        "demand": 3,
+        "fee": 35000
+    },
+    {
+        "name": "Singkawang 4",
+        "type": "customer",
+        "lat": 0.9117985632033276,
+        "lon": 108.98749715368322,
+        "demand": 4,
+        "fee": 35000
+    },
+    {
+        "name": "Singkawang 5",
+        "type": "customer",
+        "lat": 0.9180899847538697,
+        "lon": 108.98009952550929,
+        "demand": 2,
+        "fee": 35000
+    },
+    {
+        "name": "Singkawang 6",
+        "type": "customer",
+        "lat": 0.9246487288288516,
+        "lon": 109.01347520371536,
+        "demand": 2,
+        "fee": 35000
+    },
+    {
+        "name": "Pemangkat",
+        "type": "customer",
+        "lat": 1.1776535926043807,
+        "lon": 108.97555341359133,
+        "demand": 4,
+        "fee": 40000
+    },
+    {
+        "name": "Tebas",
+        "type": "customer",
+        "lat": 1.2265376001302462,
+        "lon": 109.14368453219156,
+        "demand": 3,
+        "fee": 50000
+    },
+    {
+        "name": "Sambas 1",
+        "type": "customer",
+        "lat": 1.3591435503132219,
+        "lon": 109.20188913524761,
+        "demand": 4,
+        "fee": 55000
+    },
+    {
+        "name": "Sambas 2",
+        "type": "customer",
+        "lat": 1.3649275138138588,
+        "lon": 109.31790232432759,
+        "demand": 5,
+        "fee": 55000
+    },
+    {
+        "name": "Sambas 3",
+        "type": "customer",
+        "lat": 1.3284461400719147,
+        "lon": 109.27592762699034,
+        "demand": 4,
+        "fee": 55000
+    },
+    {
+        "name": "Sambas 4",
+        "type": "customer",
+        "lat": 1.3692285963282196,
+        "lon": 109.30749840734444,
+        "demand": 3,
+        "fee": 55000
+    },
+    {
+        "name": "Sambas 5",
+        "type": "customer",
+        "lat": 1.3815699858433281,
+        "lon": 109.27522453708751,
+        "demand": 3,
+        "fee": 55000
+    },
+    {
+        "name": "Sanggau 1",
+        "type": "customer",
+        "lat": 0.12126134601010528,
+        "lon": 110.59184481975348,
+        "demand": 5,
+        "fee": 35000
+    },
+    {
+        "name": "Sanggau 2",
+        "type": "customer",
+        "lat": 0.12060275707919267,
+        "lon": 110.58475394873082,
+        "demand": 2,
+        "fee": 35000
+    },
+    {
+        "name": "Sanggau 3",
+        "type": "customer",
+        "lat": 0.12110711048462593,
+        "lon": 110.59173775525001,
+        "demand": 4,
+        "fee": 35000
+    },
+    {
+        "name": "Sanggau 4",
+        "type": "customer",
+        "lat": 0.12313476602152487,
+        "lon": 110.61226460603238,
+        "demand": 3,
+        "fee": 35000
+    },
+    {
+        "name": "Sekadau",
+        "type": "customer",
+        "lat": 0.024477838703622617,
+        "lon": 110.88801961515874,
+        "demand": 5,
+        "fee": 40000
+    },
+    {
+        "name": "Sintang 1",
+        "type": "customer",
+        "lat": 0.07199851761076666,
+        "lon": 111.4819118348199,
+        "demand": 4,
+        "fee": 50000
+    },
+    {
+        "name": "Sintang 2",
+        "type": "customer",
+        "lat": 0.06925998429837339,
+        "lon": 111.49560391917,
+        "demand": 5,
+        "fee": 50000
+    },
+    {
+        "name": "Sintang 3",
+        "type": "customer",
+        "lat": 0.07404772364041746,
+        "lon": 111.49671703591352,
+        "demand": 3,
+        "fee": 50000
+    },
+    {
+        "name": "Sintang 4",
+        "type": "customer",
+        "lat": 0.03825902653399002,
+        "lon": 111.46546369142736,
+        "demand": 4,
+        "fee": 50000
+    },
+    {
+        "name": "Nanga Silat",
+        "type": "customer",
+        "lat": 0.24308250936430173,
+        "lon": 111.78629465967254,
+        "demand": 3,
+        "fee": 55000
+    },
+    {
+        "name": "Tepuai",
+        "type": "customer",
+        "lat": 0.3699346862610024,
+        "lon": 112.30377308813972,
+        "demand": 5,
+        "fee": 55000
+    },
+    {
+        "name": "Putussubau 1",
+        "type": "customer",
+        "lat": 0.8395094664002062,
+        "lon": 112.92527675886082,
+        "demand": 3,
+        "fee": 65000
+    },
+    {
+        "name": "Putussibau 2",
+        "type": "customer",
+        "lat": 0.8693242298820658,
+        "lon": 112.92415474147941,
+        "demand": 4,
+        "fee": 65000
+    },
+    {
+        "name": "Rest simpang ampar",
+        "type": "rest_area",
+        "lat": 0.021326,
+        "lon": 110.098067,
+        "demand": null,
+        "fee": null
+    }
+]

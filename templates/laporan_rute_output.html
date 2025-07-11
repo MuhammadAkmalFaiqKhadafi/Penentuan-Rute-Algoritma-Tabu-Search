@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Laporan Rute Kendaraan</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+    
+  
+    
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Proses optimasi selesai! Silakan cek laporan rute kendaraan.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    
+  
+
+    <a href="/visualisasi" class="btn btn-success mt-3" target="_blank">Lihat Visualisasi</a>
+    <a href="/laporan" target="_blank" class="btn btn-info mt-3">Lihat Laporan Profit</a>
+    <a href="/" class="btn btn-secondary">Kembali ke Beranda</a>
+    <a href="/hapus_hasil" class="btn btn-danger mt-3">Hapus Hasil Proses</a>
+    <h2 class="mb-4">Laporan Rute Pengiriman per Kendaraan</h2>
+
+    
+        <div class="card mb-4 shadow">
+            <div class="card-header bg-primary text-white fw-bold">
+                Kendaraan 1
+            </div>
+            <div class="card-body">
+                
+                    <table class="table table-bordered table-sm mb-4">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Waktu Perjalanan</th>
+                                <th>Waktu Pelayanan</th>
+                                <th>Waktu Istirahat</th>
+                                <th>Waktu Menginap</th>
+                                <th>Total Waktu Kerja</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>6.8 jam</td>
+                                <td>2.4 jam</td>
+                                <td>0.5 jam</td>
+                                <td>8 jam</td>
+                                <td>17.7 jam</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h6 class="fw-semibold">Detail Rute:</h6>
+                    <table class="table table-striped table-hover table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th>No</th>
+                                <th>Lokasi</th>
+                                <th>Aktivitas</th>
+                                <th>Waktu Servis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                                <tr>
+                                    <td>1</td>
+                                    <td>Pontianak 1</td>
+                                    <td>Depot</td>
+                                    <td>-</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>2</td>
+                                    <td>Mandor</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.17 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>3</td>
+                                    <td>Andjongan</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.13 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>4</td>
+                                    <td>Sungai Pinyuh</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.17 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>5</td>
+                                    <td>Mempawah 3</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.13 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>6</td>
+                                    <td>Mempawah 2</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>7</td>
+                                    <td>Mempawah 1</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>8</td>
+                                    <td>Singkawang 1</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.13 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>9</td>
+                                    <td>Singkawang 3</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>10</td>
+                                    <td>Virtual Rest Area</td>
+                                    <td>Istirahat</td>
+                                    <td>0.5 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>11</td>
+                                    <td>Singkawang 5</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.07 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>12</td>
+                                    <td>Singkawang 4</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.13 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>13</td>
+                                    <td>Singkawang 2</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.13 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>14</td>
+                                    <td>Singkawang 6</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.07 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>15</td>
+                                    <td>Pemangkat</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.13 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>16</td>
+                                    <td>Tebas</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>17</td>
+                                    <td>Sambas 1</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.13 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>18</td>
+                                    <td>Sambas 5</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>19</td>
+                                    <td>Sambas 4</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>20</td>
+                                    <td>Virtual Menginap</td>
+                                    <td>Menginap</td>
+                                    <td>8 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>21</td>
+                                    <td>Sambas 2</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.17 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>22</td>
+                                    <td>Sambas 3</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.13 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>23</td>
+                                    <td>Bengkayang 3</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                        </tbody>
+                    </table>
+                
+            </div>
+        </div>
+    
+        <div class="card mb-4 shadow">
+            <div class="card-header bg-primary text-white fw-bold">
+                Kendaraan 2
+            </div>
+            <div class="card-body">
+                
+                    <table class="table table-bordered table-sm mb-4">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Waktu Perjalanan</th>
+                                <th>Waktu Pelayanan</th>
+                                <th>Waktu Istirahat</th>
+                                <th>Waktu Menginap</th>
+                                <th>Total Waktu Kerja</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>11.84 jam</td>
+                                <td>2.4 jam</td>
+                                <td>1.0 jam</td>
+                                <td>16 jam</td>
+                                <td>31.24 jam</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h6 class="fw-semibold">Detail Rute:</h6>
+                    <table class="table table-striped table-hover table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th>No</th>
+                                <th>Lokasi</th>
+                                <th>Aktivitas</th>
+                                <th>Waktu Servis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                                <tr>
+                                    <td>1</td>
+                                    <td>Pontianak 2</td>
+                                    <td>Depot</td>
+                                    <td>-</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>2</td>
+                                    <td>Tayan Hilir</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.07 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>3</td>
+                                    <td>Sosok</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>4</td>
+                                    <td>Ngabang 1</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>5</td>
+                                    <td>Ngabang 3</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>6</td>
+                                    <td>Ngabang 2</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.07 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>7</td>
+                                    <td>Virtual Rest Area</td>
+                                    <td>Istirahat</td>
+                                    <td>0.5 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>8</td>
+                                    <td>Bengkayang 1</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.13 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>9</td>
+                                    <td>Bengkayang 2</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.17 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>10</td>
+                                    <td>Virtual Menginap</td>
+                                    <td>Menginap</td>
+                                    <td>8 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>11</td>
+                                    <td>Sanggau 2</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.07 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>12</td>
+                                    <td>Sanggau 3</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.13 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>13</td>
+                                    <td>Sanggau 1</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.17 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>14</td>
+                                    <td>Sanggau 4</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>15</td>
+                                    <td>Sekadau</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.17 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>16</td>
+                                    <td>Sintang 4</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.13 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>17</td>
+                                    <td>Sintang 1</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.13 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>18</td>
+                                    <td>Sintang 2</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.17 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>19</td>
+                                    <td>Sintang 3</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>20</td>
+                                    <td>Nanga Silat</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>21</td>
+                                    <td>Virtual Rest Area</td>
+                                    <td>Istirahat</td>
+                                    <td>0.5 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>22</td>
+                                    <td>Tepuai</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.17 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>23</td>
+                                    <td>Virtual Menginap</td>
+                                    <td>Menginap</td>
+                                    <td>8 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>24</td>
+                                    <td>Putussubau 1</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.10 jam</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>25</td>
+                                    <td>Putussibau 2</td>
+                                    <td>Pelanggan</td>
+                                    <td>0.13 jam</td>
+                                </tr>
+                            
+                        </tbody>
+                    </table>
+                
+            </div>
+        </div>
+    
+    <a href="/export_segment" class="btn btn-success mb-3">Export CSV per Segmen</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

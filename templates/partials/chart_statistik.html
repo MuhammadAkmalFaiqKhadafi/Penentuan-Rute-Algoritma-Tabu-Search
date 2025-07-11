@@ -1,0 +1,64 @@
+<div class="my-4">
+    <canvas id="summaryChart" width="600" height="400"></canvas>
+    <!-- Gambar chart disembunyikan, hanya digunakan untuk ekspor ke Word -->
+    <img id="chartImage" style="display:none;" />
+</div>
+
+<script id="chart-data" type="application/json">
+    {
+        "jarak": {{ total_jarak }},
+        "biaya": {{ total_biaya }},
+        "profit": {{ profit_total }}
+    }
+</script>
+
+<!-- Pastikan hanya satu kali pemanggilan Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const rawData = document.getElementById('chart-data').textContent;
+    const parsedData = JSON.parse(rawData);
+
+    const canvas = document.getElementById('summaryChart');
+    const ctx = canvas.getContext('2d');
+
+    // Cegah chart dobel saat render ulang
+    if (window.mySummaryChart) {
+        window.mySummaryChart.destroy();
+    }
+
+    window.mySummaryChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Jarak Tempuh (km)', 'Biaya (Rp)', 'Profit (Rp)'],
+            datasets: [{
+                label: 'Statistik CMVRP',
+                data: [parsedData.jarak, parsedData.biaya, parsedData.profit],
+                backgroundColor: ['#36A2EB', '#FF6384', '#4BC0C0']
+            }]
+        },
+        options: {
+            responsive: true,
+            animation: {
+                onComplete: function () {
+                    const img = document.getElementById("chartImage");
+                    img.src = canvas.toDataURL("image/png");
+                    img.style.display = "none"; // Tetap disembunyikan
+
+                    // Simpan ke server hanya sekali
+                    if (!window.chartAlreadyUploaded) {
+                        fetch('/simpan_chart', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                            body: 'image=' + encodeURIComponent(img.src)
+                        });
+                        window.chartAlreadyUploaded = true;
+                    }
+                }
+            },
+            plugins: {
+                legend: { display: false }
+            }
+        }
+    });
+</script>

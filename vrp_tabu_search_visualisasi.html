@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Visualisasi Rute Kendaraan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <style>
+        #map { height: 100vh; }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+<script>
+    var map = L.map('map').setView([0.0, 110.0], 6);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Fungsi untuk icon kendaraan berbeda warna
+    function getColorIcon(i) {
+        const colors = ['blue', 'red', 'green', 'purple', 'orange', 'black'];
+        const color = colors[i % colors.length];
+        return `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/marker-icon-${color}.png`;
+    }
+
+    // ========== RUTE DIISI OLEH PYTHON ==========
+    L.marker([0.3505518019525449, 109.40797632593103], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.35441518595547344, 109.15941130877916], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.27839884035011186, 109.07369361893618], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.36418109527913456, 108.96105967389411], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.36468430704820454, 108.95321779947056], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.3724971993214975, 108.95675288207241], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.8915720493936989, 108.96141347423233], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.9175605747114752, 108.97995015824073], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.9175605747114752, 108.97995015824073], {
+                            icon: L.icon({
+                                iconUrl: '/static/rest_area.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Virtual Rest Area');
+L.marker([0.9180899847538697, 108.98009952550929], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.9117985632033276, 108.98749715368322], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.9064241127097126, 108.9897187690097], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.9246487288288516, 109.01347520371536], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([1.1776535926043807, 108.97555341359133], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([1.2265376001302462, 109.14368453219156], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([1.3591435503132219, 109.20188913524761], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([1.3815699858433281, 109.27522453708751], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([1.3692285963282196, 109.30749840734444], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([1.3692285963282196, 109.30749840734444], {
+                            icon: L.icon({
+                                iconUrl: '/static/menginap.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Virtual Tempat Menginap');
+L.marker([1.3649275138138588, 109.31790232432759], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([1.3284461400719147, 109.27592762699034], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([1.0451475005471282, 109.58947207151505], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.3505518019525449, 109.40797632593103], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Mandor');
+L.marker([0.35441518595547344, 109.15941130877916], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Andjongan');
+L.marker([0.27839884035011186, 109.07369361893618], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sungai Pinyuh');
+L.marker([0.36418109527913456, 108.96105967389411], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Mempawah 3');
+L.marker([0.36468430704820454, 108.95321779947056], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Mempawah 2');
+L.marker([0.3724971993214975, 108.95675288207241], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Mempawah 1');
+L.marker([0.8915720493936989, 108.96141347423233], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Singkawang 1');
+L.marker([0.9175605747114752, 108.97995015824073], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Singkawang 3');
+L.marker([0.9180899847538697, 108.98009952550929], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Singkawang 5');
+L.marker([0.9117985632033276, 108.98749715368322], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Singkawang 4');
+L.marker([0.9064241127097126, 108.9897187690097], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Singkawang 2');
+L.marker([0.9246487288288516, 109.01347520371536], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Singkawang 6');
+L.marker([1.1776535926043807, 108.97555341359133], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Pemangkat');
+L.marker([1.2265376001302462, 109.14368453219156], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Tebas');
+L.marker([1.3591435503132219, 109.20188913524761], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sambas 1');
+L.marker([1.3815699858433281, 109.27522453708751], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sambas 5');
+L.marker([1.3692285963282196, 109.30749840734444], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sambas 4');
+L.marker([1.3649275138138588, 109.31790232432759], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sambas 2');
+L.marker([1.3284461400719147, 109.27592762699034], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sambas 3');
+L.marker([1.0451475005471282, 109.58947207151505], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Bengkayang 3');
+L.marker([-0.0216806367711435, 109.321787367362], {
+                    icon: L.icon({
+                        iconUrl: '/static/depot.png',
+                        iconSize: [25, 41],
+                        iconAnchor: [12, 41]
+                    })
+                }).addTo(map).bindPopup('Depot Kendaraan 1');
+
+        L.Routing.control({
+            waypoints: [L.latLng(-0.0216806367711435, 109.321787367362),
+L.latLng(0.3505518019525449, 109.40797632593103),
+L.latLng(0.35441518595547344, 109.15941130877916),
+L.latLng(0.27839884035011186, 109.07369361893618),
+L.latLng(0.36418109527913456, 108.96105967389411),
+L.latLng(0.36468430704820454, 108.95321779947056),
+L.latLng(0.3724971993214975, 108.95675288207241),
+L.latLng(0.8915720493936989, 108.96141347423233),
+L.latLng(0.9175605747114752, 108.97995015824073),
+L.latLng(0.9175605747114752, 108.97995015824073),
+L.latLng(0.9180899847538697, 108.98009952550929),
+L.latLng(0.9117985632033276, 108.98749715368322),
+L.latLng(0.9064241127097126, 108.9897187690097),
+L.latLng(0.9246487288288516, 109.01347520371536),
+L.latLng(1.1776535926043807, 108.97555341359133),
+L.latLng(1.2265376001302462, 109.14368453219156),
+L.latLng(1.3591435503132219, 109.20188913524761),
+L.latLng(1.3815699858433281, 109.27522453708751),
+L.latLng(1.3692285963282196, 109.30749840734444),
+L.latLng(1.3692285963282196, 109.30749840734444),
+L.latLng(1.3649275138138588, 109.31790232432759),
+L.latLng(1.3284461400719147, 109.27592762699034),
+L.latLng(1.0451475005471282, 109.58947207151505)],
+            lineOptions: {
+                styles: [{ color: 'red', weight: 5 }]
+            },
+            createMarker: () => null,
+            routeWhileDragging: false
+        }).addTo(map);
+        
+L.marker([-0.03559892023639575, 110.11406154689286], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.29355995367963583, 110.24318728460791], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.38096088896953084, 109.95175660621733], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.39592617623348997, 109.94436387724139], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.39857854791849445, 109.95076443241291], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.39857854791849445, 109.95076443241291], {
+                            icon: L.icon({
+                                iconUrl: '/static/rest_area.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Virtual Rest Area');
+L.marker([0.8198129244446497, 109.48240573311614], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.8240560976606564, 109.48343701674949], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.8240560976606564, 109.48343701674949], {
+                            icon: L.icon({
+                                iconUrl: '/static/menginap.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Virtual Tempat Menginap');
+L.marker([0.12060275707919267, 110.58475394873082], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.12110711048462593, 110.59173775525001], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.12126134601010528, 110.59184481975348], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.12313476602152487, 110.61226460603238], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.024477838703622617, 110.88801961515874], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.03825902653399002, 111.46546369142736], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.07199851761076666, 111.4819118348199], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.06925998429837339, 111.49560391917], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.07404772364041746, 111.49671703591352], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.24308250936430173, 111.78629465967254], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.2530825093643017, 111.79629465967254], {
+                            icon: L.icon({
+                                iconUrl: '/static/rest_area.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Virtual Rest Area');
+L.marker([0.3699346862610024, 112.30377308813972], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.3849346862610024, 112.31877308813972], {
+                            icon: L.icon({
+                                iconUrl: '/static/menginap.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Virtual Tempat Menginap');
+L.marker([0.8395094664002062, 112.92527675886082], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([0.8693242298820658, 112.92415474147941], {
+                            icon: L.icon({
+                                iconUrl: '/static/customer.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41]
+                            })
+                        }).addTo(map).bindPopup('Pelanggan');
+L.marker([-0.03559892023639575, 110.11406154689286], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Tayan Hilir');
+L.marker([0.29355995367963583, 110.24318728460791], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sosok');
+L.marker([0.38096088896953084, 109.95175660621733], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Ngabang 1');
+L.marker([0.39592617623348997, 109.94436387724139], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Ngabang 3');
+L.marker([0.39857854791849445, 109.95076443241291], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Ngabang 2');
+L.marker([0.8198129244446497, 109.48240573311614], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Bengkayang 1');
+L.marker([0.8240560976606564, 109.48343701674949], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Bengkayang 2');
+L.marker([0.12060275707919267, 110.58475394873082], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sanggau 2');
+L.marker([0.12110711048462593, 110.59173775525001], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sanggau 3');
+L.marker([0.12126134601010528, 110.59184481975348], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sanggau 1');
+L.marker([0.12313476602152487, 110.61226460603238], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sanggau 4');
+L.marker([0.024477838703622617, 110.88801961515874], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sekadau');
+L.marker([0.03825902653399002, 111.46546369142736], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sintang 4');
+L.marker([0.07199851761076666, 111.4819118348199], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sintang 1');
+L.marker([0.06925998429837339, 111.49560391917], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sintang 2');
+L.marker([0.07404772364041746, 111.49671703591352], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Sintang 3');
+L.marker([0.24308250936430173, 111.78629465967254], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Nanga Silat');
+L.marker([0.3699346862610024, 112.30377308813972], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Tepuai');
+L.marker([0.8395094664002062, 112.92527675886082], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Putussubau 1');
+L.marker([0.8693242298820658, 112.92415474147941], {
+                icon: L.icon({
+                    iconUrl: '/static/customer.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                })
+            }).addTo(map).bindPopup('Putussibau 2');
+L.marker([-0.0913518946417185, 109.392303436673], {
+                    icon: L.icon({
+                        iconUrl: '/static/depot.png',
+                        iconSize: [25, 41],
+                        iconAnchor: [12, 41]
+                    })
+                }).addTo(map).bindPopup('Depot Kendaraan 2');
+
+        L.Routing.control({
+            waypoints: [L.latLng(-0.0913518946417185, 109.392303436673),
+L.latLng(-0.03559892023639575, 110.11406154689286),
+L.latLng(0.29355995367963583, 110.24318728460791),
+L.latLng(0.38096088896953084, 109.95175660621733),
+L.latLng(0.39592617623348997, 109.94436387724139),
+L.latLng(0.39857854791849445, 109.95076443241291),
+L.latLng(0.39857854791849445, 109.95076443241291),
+L.latLng(0.8198129244446497, 109.48240573311614),
+L.latLng(0.8240560976606564, 109.48343701674949),
+L.latLng(0.8240560976606564, 109.48343701674949),
+L.latLng(0.12060275707919267, 110.58475394873082),
+L.latLng(0.12110711048462593, 110.59173775525001),
+L.latLng(0.12126134601010528, 110.59184481975348),
+L.latLng(0.12313476602152487, 110.61226460603238),
+L.latLng(0.024477838703622617, 110.88801961515874),
+L.latLng(0.03825902653399002, 111.46546369142736),
+L.latLng(0.07199851761076666, 111.4819118348199),
+L.latLng(0.06925998429837339, 111.49560391917),
+L.latLng(0.07404772364041746, 111.49671703591352),
+L.latLng(0.24308250936430173, 111.78629465967254),
+L.latLng(0.2530825093643017, 111.79629465967254),
+L.latLng(0.3699346862610024, 112.30377308813972),
+L.latLng(0.3849346862610024, 112.31877308813972),
+L.latLng(0.8395094664002062, 112.92527675886082),
+L.latLng(0.8693242298820658, 112.92415474147941)],
+            lineOptions: {
+                styles: [{ color: 'blue', weight: 5 }]
+            },
+            createMarker: () => null,
+            routeWhileDragging: false
+        }).addTo(map);
+        
+L.marker([0.021326, 110.098067], {
+            icon: L.icon({
+                iconUrl: '/static/rest_area.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41]
+            })
+        }).addTo(map).bindPopup('Rest Area: Rest simpang ampar');
+</script>
+</body>
+</html>
